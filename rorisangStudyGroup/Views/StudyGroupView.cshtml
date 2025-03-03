@@ -1,0 +1,27 @@
+﻿@model List<rorisangStudyGroup.Models.StudyGroupModel>
+
+@{
+    ViewBag.Title = "StudyGroupView";
+}
+
+<h2>Study Group</h2>
+
+<table class="studygroup">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.First().StudentNr)</th>
+        <th>@Html.DisplayNameFor(model => model.First().FirstName)</th>
+        <th>@Html.DisplayNameFor(model => model.First().LastName)</th>
+        <th>@Html.DisplayNameFor(model => model.First().Email)</th>
+    </tr>
+
+    @foreach (var student in Model)  // Fixing incorrect variable names
+    {
+        <tr>
+            <td>@student.StudentNr</td>
+            <td>@student.FirstName</td>
+            <td>@student.LastName</td>
+            <td>@student.Email</td>
+        </tr>
+    }
+</table>
+
