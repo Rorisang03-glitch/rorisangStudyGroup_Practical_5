@@ -31,3 +31,63 @@
         </section>
     </div>
 </main>
+<table class="table table-striped" id="studyBuddiesTable">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Degree</th>
+            <th>Year</th>
+            <th>Action</th> <!-- New column -->
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Asanda</td>
+            <td>Business Agricultural Science</td>
+            <td>3rd</td>
+            <td><button class="btn btn-danger btn-sm delete-btn">Remove</button></td>
+        </tr>
+        <tr>
+            <td>Adi</td>
+            <td>BCOM Informatics</td>
+            <td>3rd</td>
+            <td><button class="btn btn-danger btn-sm delete-btn">Remove</button></td>
+        </tr>
+        <tr>
+            <td>Tumi</td>
+            <td>Psychology</td>
+            <td>3rd</td>
+            <td><button class="btn btn-danger btn-sm delete-btn">Remove</button></td>
+        </tr>
+        <tr>
+            <td>Rorisang</td>
+            <td>BIT IS</td>
+            <td>2nd</td>
+            <td><button class="btn btn-danger btn-sm delete-btn">Remove</button></td>
+        </tr>
+    </tbody>
+</table>
+<script>
+    // Wait until the page is fully loaded
+    document.addEventListener("DOMContentLoaded", function () {
+        // Loop through each row
+        const rows = document.querySelectorAll("#studyBuddiesTable tbody tr");
+
+        rows.forEach(row => {
+            const nameCell = row.cells[0]; // Name is in the first cell
+            const name = nameCell.textContent.trim();
+
+            // Change text color if name starts with 'S'
+            if (name.startsWith("S")) {
+                row.style.color = "red";
+            }
+
+            // Add click event to the delete button
+            const deleteBtn = row.querySelector(".delete-btn");
+            deleteBtn.addEventListener("click", function () {
+                row.remove(); // Remove the row when button is clicked
+            });
+        });
+    });
+</script>
+

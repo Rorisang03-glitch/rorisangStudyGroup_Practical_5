@@ -145,9 +145,17 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\hobby_images\adi_hobby.jpeg" />
+    <Content Include="Content\student_images\Adi.jpeg" />
+    <Content Include="Content\student_images\Asanda.jpeg" />
+    <Content Include="Content\student_images\gontla.jpeg" />
+    <Content Include="Content\student_images\rorisang.jpeg" />
+    <Content Include="Content\student_images\Tumisang.png" />
+    <Content Include="Content\StudyGroup.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\hobby_images\asanda-hobby.jpeg" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -180,6 +188,11 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\StudyGroupView.cshtml" />
+    <Content Include="Views\HTML\Rorisang.cshtml" />
+    <Content Include="Views\HTML\Gontla.cshtml" />
+    <Content Include="Views\HTML\Asanda.cshtml" />
+    <Content Include="Views\HTML\Tumisang.cshtml" />
+    <Content Include="Views\HTML\Adi.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

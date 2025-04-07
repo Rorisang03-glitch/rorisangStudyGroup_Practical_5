@@ -13,11 +13,11 @@ namespace rorisangStudyGroup.Controllers
         public ActionResult Index()
         {
             List<Models.StudyGroupModel> students = new List<Models.StudyGroupModel>();
-            students.Add(new Models.StudyGroupModel { StudentNr = "u22514407", FirstName = "Rorisang", LastName = "Maseko", Email = "u22514407@tuks.co.za" });
-            students.Add(new Models.StudyGroupModel { StudentNr = "u22753436", FirstName = "Bokang", LastName = "Seena", Email = "4227534369tuks.co.za" });
-            students.Add(new Models.StudyGroupModel { StudentNr = "u22496786", FirstName = "Alex", LastName = "Steven", Email = "u22496786@tuks.co.za" });
-            students.Add(new Models.StudyGroupModel { StudentNr = "u24717739", FirstName = "Ritshi", LastName = "Nedzimaul1", Email = "u247177399tuks.co.za" });
-            students.Add(new Models.StudyGroupModel { StudentNr = "u22714228", FirstName = "Adivhaho", LastName = "Makmarela", Email = "u221142289tuks.co.za" });
+            students.Add(new Models.StudyGroupModel { StudentNr = "u22514407", FirstName = "Rorisang", LastName = "Maseko", Email = "u22514407@tuks.co.za", myLink = "C:\\Users\\lenovo\\source\\repos\\rorisangStudyGroup\\rorisangStudyGroup\\Views\\HTML\\Rorisang.cshtml" });
+            students.Add(new Models.StudyGroupModel { StudentNr = "u22753436", FirstName = "Asanda", LastName = "Mokobi", Email = "u22854152@tuks.co.za", myLink = "C:\\Users\\lenovo\\source\\repos\\rorisangStudyGroup\\rorisangStudyGroup\\Views\\HTML\\Bokang.cshtml" });
+            students.Add(new Models.StudyGroupModel { StudentNr = "u22496786", FirstName = "Gontlafetse", LastName = "Phetla", Email = "u22768492@tuks.co.za", myLink = "C:\\Users\\lenovo\\source\\repos\\rorisangStudyGroup\\rorisangStudyGroup\\Views\\HTML\\Alex.cshtml" });
+            students.Add(new Models.StudyGroupModel { StudentNr = "u24717739", FirstName = "Tumisang", LastName = "Mphahlele", Email = "u22532715@tuks.co.za", myLink = "C:\\Users\\lenovo\\source\\repos\\rorisangStudyGroup\\rorisangStudyGroup\\Views\\HTML\\Ritshi.cshtml" });
+            students.Add(new Models.StudyGroupModel { StudentNr = "u22714228", FirstName = "Adivhaho", LastName = "Makwarela", Email = "u22114228@tuks.co.za", myLink = "C:\\Users\\lenovo\\source\\repos\\rorisangStudyGroup\\rorisangStudyGroup\\Views\\HTML\\Adi.cshtml" });
             return View(students);
 
         }

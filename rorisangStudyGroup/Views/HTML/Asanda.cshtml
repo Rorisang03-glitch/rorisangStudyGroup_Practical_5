@@ -1,0 +1,84 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        @{
+            ViewBag.Title = "Asanda";
+        }
+    </title>
+   
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="C:\Users\lenovo\source\repos\rorisangStudyGroup\rorisangStudyGroup\Content\StudyGroup.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="container text-center my-4">
+        <h1>Asanda Mokobi</h1>
+    </div>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Study Group</a>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="~/">Main</a></li>
+                        <li class="nav-item"><a class="nav-link" href="~/People/Index">List</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="#">Adi</a></li>
+                        <li class="nav-item"><a class="nav-link" href="Alex.html">Asanda</a></li>
+                        <li class="nav-item"><a class="nav-link" href="Bokang.html">Tumisang</a></li>
+                        <li class="nav-item"><a class="nav-link" href="Rorisang.html">Gontla</a></li>
+                        <li class="nav-item"><a class="nav-link" href="Ritshi.html">Rorisang</a></li>
+                        <li class="nav-item"><a class="nav-link" href="javascript:history.back()">Back</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+
+
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">Biography & Background</div>
+            <div class="card-body">
+                <img src="~/Content/student_images/Asanda.jpeg" alt="Asanda" class="img-fluid rounded float-start me-3 mb-3" style="max-width: 200px;" />
+                <p>Asanda is a 21-year-old student from Germiston and Randburg who studies Business and Agricultural science. She’s passionate about business and farming, and is always eager to help.</p>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-header bg-success text-white">Hobbies</div>
+            <div class="card-body">
+                <p>Asanda enjoys painitng as well as going out wih friends over the weekends</p>
+               <img src="~/Content/hobby_images/asanda-hobby.jpeg" alt="Hobby Image" class="img-fluid rounded"  />
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-header bg-info text-white">Modules</div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Semester 1</th>
+                            <th>Semester 2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>INF214</td><td>INL260</td></tr>
+                        <tr><td>FIL251</td><td>INF225</td></tr>
+                        <tr><td>INF271</td><td>INF272</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bootstrap JS & jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

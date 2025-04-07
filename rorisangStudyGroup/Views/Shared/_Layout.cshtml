@@ -6,7 +6,9 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link href="C:\Users\lenovo\source\repos\rorisangStudyGroup\rorisangStudyGroup\Content\StudyGroup.css" rel="stylesheet" />
 </head>
+
 <body>
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
         <div class="container">
@@ -22,11 +24,29 @@
                     <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Study Group", "Index", "StudyGroup")</li>
                 </ul>
-                
+
 
             </div>
         </div>
     </nav>
+    <header>
+        <nav>
+            <ul>
+                
+                <li>
+                    <a href="~/People">List of People ▼</a>
+                    <ul>
+                        <li><a href="C:\Users\lenovo\source\repos\rorisangStudyGroup\rorisangStudyGroup\Controllers\StudyGroupController.cs">Complete List Of People</a></li>
+                        <li><a href="C:\Users\lenovo\source\repos\rorisangStudyGroup\rorisangStudyGroup\Views\HTML\Adi.cshtml">Adi</a></li>
+                        <li><a href="C:\Users\lenovo\source\repos\rorisangStudyGroup\rorisangStudyGroup\Views\HTML\Ritshi.cshtml">Ritshi</a></li>
+                        <li><a href="C:\Users\lenovo\source\repos\rorisangStudyGroup\rorisangStudyGroup\Views\HTML\Alex.cshtml">Alex</a></li>
+                        <li><a href="C:\Users\lenovo\source\repos\rorisangStudyGroup\rorisangStudyGroup\Views\HTML\Rorisang.cshtml">Rorisang</a></li>
+                        <li><a href="C:\Users\lenovo\source\repos\rorisangStudyGroup\rorisangStudyGroup\Views\HTML\Bokang.cshtml">Bokang</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
     <div class="container body-content">
         @RenderBody()
         <hr />
