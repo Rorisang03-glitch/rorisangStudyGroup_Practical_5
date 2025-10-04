@@ -1,83 +1,137 @@
-﻿
-
-
-<h2>Adi</h2>
-
-
-
-<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        @{
-            ViewBag.Title = "Adi";
+    <meta charset="UTF-8" />
+    <link href="~/Content/StudyGroup.css" rel="stylesheet" />
+    <style>
+        .tab-buttons {
+            display: flex;
+            margin-bottom: 20px;
         }
-    </title>
-  
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="C:\Users\lenovo\source\repos\rorisangStudyGroup\rorisangStudyGroup\Content\StudyGroup.css" rel="stylesheet" />
+
+        .tab-button {
+            padding: 10px 20px;
+            background-color: #f1f1f1;
+            border: none;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+
+            .tab-button.active {
+                background-color: #4CAF50;
+                color: white;
+            }
+
+        .tab-content {
+            display: none;
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #ddd;
+        }
+
+            .tab-content.active {
+                display: block;
+            }
+
+        .nav-menu {
+            display: flex;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .nav-item {
+            padding: 10px 15px;
+            background-color: lightgray;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
 </head>
-<body>
+<body style="background-color: lightgreen">
+    <h1 id="firstHeading">Adi Makwarela</h1>
+    <hr id="hr_header">
 
-    <div class="container text-center my-4">
-        <h1>Adi Makwarela</h1>
+    <!-- Navigation Menu -->
+    <div class="nav-menu">
+        <div class="nav-item" onclick="window.location.href='@Url.Action("Index", "StudyGroup")'">Main</div>
+        <div class="nav-item" onclick="window.location.href='@Url.Action("ListGroupMembers", "StudyGroup")'">List</div>
+        <div class="nav-item" onclick="window.location.href='@Url.Action("AdiPage", "StudyGroup")'">Adi</div>
+        <div class="nav-item" onclick="window.location.href='@Url.Action("AsandaPage", "StudyGroup")'">Asanda</div>
+        <div class="nav-item" onclick="window.location.href='@Url.Action("GontlaPage", "StudyGroup")'">Gontla</div>
+        <div class="nav-item" onclick="window.location.href='@Url.Action("RorisangPage", "StudyGroup")'">Rorisang</div>
+        <div class="nav-item" onclick="window.location.href='@Url.Action("TumisangPage", "StudyGroup")'">Tumisang</div>
+        <div class="nav-item"><a href="javascript:history.back()" style="text-decoration: none; color: black;">Back</a></div>
     </div>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Study Group</a>
-                <div class="collapse navbar-collapse">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="~/">Main</a></li>
-                        <li class="nav-item"><a class="nav-link" href="~/People/Index">List</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="#">Adi</a></li>
-                        <li class="nav-item"><a class="nav-link" href="Alex.html">Asanda</a></li>
-                        <li class="nav-item"><a class="nav-link" href="Bokang.html">Tumisang</a></li>
-                        <li class="nav-item"><a class="nav-link" href="Rorisang.html">Gontla</a></li>
-                        <li class="nav-item"><a class="nav-link" href="Ritshi.html">Rorisang</a></li>
-                        <li class="nav-item"><a class="nav-link" href="javascript:history.back()">Back</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <div class="row">
-          
-            <div class="col-md-4">
-                <h2>Biography & Background</h2>
-                <img src="~/Content/student_images/Adi.jpeg" alt="Adi" class="img-fluid rounded mb-3">
-                <p>Adi is a 21-year-old student from Centurion. She studies BCom Informatics. She chose this career because she has a passion for business and coding, and loves people and learning.</p>
-            </div>
-            <div class="col-md-4">
-                <h2>Hobbies</h2>
-                <p> Adi enjoys attending sports games as well as watching it on TV.</p>
-                <img src="~/Content/hobby_images/adi_hobby.jpeg" alt="Hobby" class="img-fluid rounded">  
-            </div>
 
-            <div class="col-md-4">
-                <h2>Modules</h2>
-                <table class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th>Semester 1</th>
-                            <th>Semester 2</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>INF214</td><td>INL260</td></tr>
-                        <tr><td>FIL251</td><td>INF225</td></tr>
-                        <tr><td>INF271</td><td>INF272</td></tr>
-                    </tbody>
-                </table>
+    <hr id="hr_header">
+
+    <!-- Custom Tabs -->
+    <div class="tab-buttons">
+        <button class="tab-button active" data-tab="bio">Background and biography</button>
+        <button class="tab-button" data-tab="hobbies">Hobbies</button>
+        <button class="tab-button" data-tab="modules">Modules</button>
+    </div>
+
+    <!-- Tab Contents -->
+    <div id="bio" class="tab-content active">
+        <h2>Biography & Background</h2>
+        <p>
+            <img src="~/Views/HTML/student_images/Adi.jpeg" alt="Adi" style="float:left; width:100px; height:150px;object-fit:contain; padding: 5px; margin-right: 15px;">
+            Adi is a 21-year-old student from Centurion. She studies BCom Informatics. She chose this career because she has a passion for business and coding, and loves people and learning.
+        </p>
+    </div>
+
+    <div id="hobbies" class="tab-content">
+        <h2>Hobbies</h2>
+        <p>
+            <img src="~/Views/HTML/hobby_images/adi_hobby.jpeg" alt="Adi's Hobby" style="float:right; width:150px; height:150px;object-fit:contain; margin-left: 15px;">
+            Adi enjoys attending sports games as well as watching it on TV. She is particularly passionate about soccer and basketball, and often attends local games with friends. Her love for sports started at a young age when she played on her school's basketball team.
+        </p>
+    </div>
+
+    <div id="modules" class="tab-content">
+        <h2>Modules</h2>
+        <div style="display: flex; gap: 20px;">
+            <div style="flex: 1;">
+                <h3>Semester 1</h3>
+                <ul style="list-style-type: none; padding: 0;">
+                    <li style="padding: 5px; background-color: #f8f9fa; margin-bottom: 5px;">INF214</li>
+                    <li style="padding: 5px; background-color: #f8f9fa; margin-bottom: 5px;">FIL251</li>
+                    <li style="padding: 5px; background-color: #f8f9fa; margin-bottom: 5px;">INF271</li>
+                </ul>
+            </div>
+            <div style="flex: 1;">
+                <h3>Semester 2</h3>
+                <ul style="list-style-type: none; padding: 0;">
+                    <li style="padding: 5px; background-color: #f8f9fa; margin-bottom: 5px;">INL260</li>
+                    <li style="padding: 5px; background-color: #f8f9fa; margin-bottom: 5px;">INF225</li>
+                    <li style="padding: 5px; background-color: #f8f9fa; margin-bottom: 5px;">INF272</li>
+                </ul>
             </div>
         </div>
     </div>
 
-    <!-- Bootstrap JS & jQuery -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Custom Tab Functionality without Bootstrap
+        document.addEventListener('DOMContentLoaded', function () {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            // Event delegation for tab buttons
+            document.querySelector('.tab-buttons').addEventListener('click', function (event) {
+                if (event.target.classList.contains('tab-button')) {
+                    const targetTab = event.target.getAttribute('data-tab');
+
+                    // Remove active class from all buttons and contents
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+
+                    // Add active class to clicked button and corresponding content
+                    event.target.classList.add('active');
+                    document.getElementById(targetTab).classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>

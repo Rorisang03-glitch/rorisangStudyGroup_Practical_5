@@ -20,7 +20,6 @@ namespace rorisangStudyGroup.Models
         [Display(Name = "Email Address")]
         public string Email { get; set; }
 
-        [Display(Name = "myLink")]
-        public string myLink { get; set; }
+
     }
 }

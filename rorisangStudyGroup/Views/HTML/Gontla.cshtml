@@ -8,63 +8,58 @@
         @{
             ViewBag.Title = "Gontla";
         }
-    </title>
-    <title>
-        Gontla
-    </title>
-  
-    <link href="C:\Users\lenovo\source\repos\rorisangStudyGroup\rorisangStudyGroup\Content\StudyGroup.css" rel="stylesheet" />
+    </title> 
+    <link href="~/Content/StudyGroup.css" rel="stylesheet" />
 </head>
 <body>
+    <h1 id="firstHeading">Gontla</h1>
+    <hr id="hr_header">
+    <div class="container text-center" style="background-color: lightgreen">
+        <div class="row row-cols-auto" style="background-color:lightgray">
+            <div class="col" onclick="window.location.href='@Url.Action("Index", "StudyGroup")'">Main</div>
+            <div class="col" onclick="window.location.href='@Url.Action("Index", "StudyGroup")'">List</div>
+            <div class="col" onclick="window.location.href='@Url.Action("AdiPage", "StudyGroup")'">Adi</div>
+            <div class="col" onclick="window.location.href='@Url.Action("AsandaPage", "StudyGroup")'">Asanda</div>
+            <div class="col" onclick="window.location.href='@Url.Action("GontlaPage", "StudyGroup")'">Gontla</div>
+            <div class="col" onclick="window.location.href='@Url.Action("RorisangPage", "StudyGroup")'">Rorisang</div>
+            <div class="col" onclick="window.location.href='@Url.Action("TumisangPage", "StudyGroup")'">Tumisang</div>
+            <div class="col"><a href="javascript:history.back()">Back</a></div>
+        </div>
 
-    <h1>Bokang</h1>
-    <header>
-    <nav>
-        <ul>
-            <li><a href="~/">Main</a></li>
-            <li><a href="~/People/Index">List</a></li>
-            <li><a href="Adi.html">Adi</a></li>
-            <li><a href="Alex.html">Asanda</a></li>
-            <li><a href="Bokang.html">Tumisang</a></li>
-            <li><a href="Rorisang.html">Gontla</a></li>
-            <li><a href="Ritshi.html">Rorisang</a></li>
-            <li><a href="javascript:history.back()">BACK</a></li>
-        </ul>
-    </nav>
-    </header>
+    </div>
     <section id="background">
         <h2>Biography and Background</h2>
-        <img src="C:\Users\lenovo\source\repos\rorisangStudyGroup\rorisangStudyGroup\Content\student_images\gontla.jpeg" alt="Bokang" class="left-image">
+        <img src="~/Views/HTML/student_images/gontla.jpeg" class="left-image">
         <p>Gontla is a 21 year old student from Rustenburg, she studies Human Physiology. She chose this career because she has a passion for physical wellness.</p>
     </section>
     <section id="hobbies">
         <h2>Hobbies</h2>
         <p>
-            Bokang enjoys playing soccer with his friends. He enjoys coding as well as reading in his spare time.
+            Gontla enjoys playing soccer with his friends. He enjoys coding as well as reading in his spare time.
         </p>
-        <img src="C:\Users\lenovo\source\repos\rorisangStudyGroup\rorisangStudyGroup\Views\HTML\Images\tony-stark-iron-man.webp" alt="Hobby 01" class="right-image">
+        <img src="~/Views/HTML/hobby_images/asanda-hobby.jpeg" alt="Hobby 01" class="right-image">
     </section>
 
     <section id="modules">
         <h2>Modules</h2>
-        <table>
-            <tr>
-                <th>Semester 1</th>
-                <th>Semester 2</th>
-            </tr>
-            <tr>
-                <td>INF214</td>
-                <td>INL260</td>
-            </tr>
-            <tr>
-                <td>FIL251</td>
-                <td>INF225</td>
-            </tr>
-            <tr>
-                <td>INF271</td>
-                <td>INF271</td>
-            </tr>
-        </table>
+        <h3>Semester 1</h3>
+        <div class="container text-center">
+            <div class="row">
+                <div class="col">
+                    <ul> Semester 1</ul>
+                    <ul>INF 214</ul>
+                    <ul>FIL 251</ul>
+                    <ul>INF 271</ul>
+                </div>
+                <div class="col">
+                    <ul>Semester 2</ul>
+                    <ul>INL 260</ul>
+                    <ul>INF 225</ul>
+                    <ul>INF 271</ul>
+                </div>
+            </div>
+
+        </div>
     </section>
 </body>
 </html>

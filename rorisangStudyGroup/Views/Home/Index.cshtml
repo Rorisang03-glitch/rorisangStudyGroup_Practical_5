@@ -1,93 +1,297 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<head>
+    <link href="StudyGroup.css" rel="stylesheet" />
+</head>
+<body style="background-color: lightgreen">
 
-<main>
-    <section class="row" aria-labelledby="aspnetTitle">
-        <h1 id="title">ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-        <p><a href="https://asp.net" class="btn btn-primary btn-md">Learn more &raquo;</a></p>
-    </section>
-
-    <div class="row">
-        <section class="col-md-4" aria-labelledby="gettingStartedTitle">
-            <h2 id="gettingStartedTitle">Getting started</h2>
-            <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
-            </p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="librariesTitle">
-            <h2 id="librariesTitle">Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="hostingTitle">
-            <h2 id="hostingTitle">Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-        </section>
+    <!-- Create New Button -->
+    <div class="mb-3">
+        <button type="button" id="createNewBtn" class="btn btn-primary">Create New</button>
     </div>
-</main>
-<table class="table table-striped" id="studyBuddiesTable">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Degree</th>
-            <th>Year</th>
-            <th>Action</th> <!-- New column -->
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Asanda</td>
-            <td>Business Agricultural Science</td>
-            <td>3rd</td>
-            <td><button class="btn btn-danger btn-sm delete-btn">Remove</button></td>
-        </tr>
-        <tr>
-            <td>Adi</td>
-            <td>BCOM Informatics</td>
-            <td>3rd</td>
-            <td><button class="btn btn-danger btn-sm delete-btn">Remove</button></td>
-        </tr>
-        <tr>
-            <td>Tumi</td>
-            <td>Psychology</td>
-            <td>3rd</td>
-            <td><button class="btn btn-danger btn-sm delete-btn">Remove</button></td>
-        </tr>
-        <tr>
-            <td>Rorisang</td>
-            <td>BIT IS</td>
-            <td>2nd</td>
-            <td><button class="btn btn-danger btn-sm delete-btn">Remove</button></td>
-        </tr>
-    </tbody>
-</table>
-<script>
-    // Wait until the page is fully loaded
-    document.addEventListener("DOMContentLoaded", function () {
-        // Loop through each row
-        const rows = document.querySelectorAll("#studyBuddiesTable tbody tr");
 
-        rows.forEach(row => {
-            const nameCell = row.cells[0]; // Name is in the first cell
-            const name = nameCell.textContent.trim();
+    <!-- Search Functionality -->
+    <div class="form-inline mb-3">
+        <input type="text" id="searchInput" class="form-control" placeholder="Search names..." />
+        <button type="button" id="searchBtn" class="btn btn-info ml-2">Search</button>
+    </div>
 
-            // Change text color if name starts with 'S'
-            if (name.startsWith("S")) {
-                row.style.color = "red";
+    <table class="table table-striped" id="studyBuddiesTable" style="background-color: white">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Degree</th>
+                <th>Year</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Adi</td>
+                <td>BCOM Informatics</td>
+                <td>3rd</td>
+                <td><button class="btn btn-success btn-sm delete-btn">Delete</button></td>
+            </tr>
+            <tr>
+                <td>Asanda</td>
+                <td>Business Agricultural Science</td>
+                <td>3rd</td>
+                <td><button class="btn btn-success btn-sm delete-btn">Delete</button></td>
+            </tr>
+            <tr>
+                <td>Gontla</td>
+                <td>Physiology</td>
+                <td>3rd</td>
+                <td><button class="btn btn-success btn-sm delete-btn">Delete</button></td>
+            </tr>
+            <tr>
+                <td>Rorisang</td>
+                <td>BIT IS</td>
+                <td>2nd</td>
+                <td><button class="btn btn-success btn-sm delete-btn">Delete</button></td>
+            </tr>
+            <tr>
+                <td>Tumi</td>
+                <td>Psychology</td>
+                <td>3rd</td>
+                <td><button class="btn btn-success btn-sm delete-btn">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Local Storage Buttons at the bottom of the table -->
+    <div class="mt-3">
+        <button type="button" id="saveToLocal" class="btn btn-warning">Save to local storage</button>
+        <button type="button" id="retrieveFromLocal" class="btn btn-success">Retrieve from local storage</button>
+        <button type="button" id="clearLocal" class="btn btn-danger">Clear local storage</button>
+    </div>
+
+    <!-- Create New Form (Hidden by default) -->
+    <div id="createForm" style="display: none; margin-top: 20px; padding: 20px; background-color: white; border: 1px solid #ddd;">
+        <h3>Add New Study Buddy</h3>
+        <div class="form-group">
+            <label for="newName">Name:</label>
+            <input type="text" id="newName" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="newDegree">Degree:</label>
+            <input type="text" id="newDegree" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="newYear">Year:</label>
+            <input type="text" id="newYear" class="form-control">
+        </div>
+        <button type="button" id="addStudentBtn" class="btn btn-success">Add Student</button>
+        <button type="button" id="cancelBtn" class="btn btn-secondary">Cancel</button>
+    </div>
+
+    <script>
+        // Wait until the page is fully loaded
+        document.addEventListener("DOMContentLoaded", function () {
+            // Create New Functionality
+            document.getElementById('createNewBtn').addEventListener('click', function () {
+                document.getElementById('createForm').style.display = 'block';
+            });
+
+            document.getElementById('cancelBtn').addEventListener('click', function () {
+                document.getElementById('createForm').style.display = 'none';
+                // Clear form fields
+                document.getElementById('newName').value = '';
+                document.getElementById('newDegree').value = '';
+                document.getElementById('newYear').value = '';
+            });
+
+            document.getElementById('addStudentBtn').addEventListener('click', function () {
+                const name = document.getElementById('newName').value.trim();
+                const degree = document.getElementById('newDegree').value.trim();
+                const year = document.getElementById('newYear').value.trim();
+
+                if (name && degree && year) {
+                    // Add new row to table
+                    const tbody = document.querySelector('#studyBuddiesTable tbody');
+                    const newRow = document.createElement('tr');
+
+                    newRow.innerHTML = `
+                            <td>${name}</td>
+                            <td>${degree}</td>
+                            <td>${year}</td>
+                            <td><button class="btn btn-success btn-sm delete-btn">Delete</button></td>
+                        `;
+
+                    tbody.appendChild(newRow);
+
+                    // Add event listeners to the new row
+                    const deleteBtn = newRow.querySelector('.delete-btn');
+                    deleteBtn.addEventListener('click', function () {
+                        newRow.remove();
+                    });
+
+                    // Apply green color if name starts with 'S'
+                    if (name.startsWith('S')) {
+                        newRow.style.color = 'green';
+                    }
+
+                    // Hide form and clear fields
+                    document.getElementById('createForm').style.display = 'none';
+                    document.getElementById('newName').value = '';
+                    document.getElementById('newDegree').value = '';
+                    document.getElementById('newYear').value = '';
+
+                    alert('New student added successfully!');
+                } else {
+                    alert('Please fill in all fields!');
+                }
+            });
+
+            // Search Functionality
+            document.getElementById('searchBtn').addEventListener('click', function () {
+                const searchString = document.getElementById('searchInput').value.toLowerCase();
+                const rows = document.querySelectorAll('#studyBuddiesTable tbody tr');
+
+                rows.forEach(row => {
+                    const name = row.cells[0].textContent.toLowerCase();
+
+                    // Check if the name contains the search string
+                    if (name.includes(searchString)) {
+                        // Store original color if not already stored
+                        if (!row.dataset.originalColor) {
+                            row.dataset.originalColor = row.style.color || '';
+                        }
+
+                        // Change text color to red
+                        row.style.color = 'red';
+
+                        // Revert back to original color after 3 seconds
+                        setTimeout(() => {
+                            row.style.color = row.dataset.originalColor;
+                        }, 3000);
+                    }
+                });
+            });
+
+            // =====================
+            // LOCAL STORAGE FUNCTIONS
+            // =====================
+
+            // Save to local storage (using both JSON and HTML methods)
+            document.getElementById('saveToLocal').addEventListener('click', function () {
+                // Method 1: Save with JSON (structured data)
+                const tableData = [];
+                const rows = document.querySelectorAll('#studyBuddiesTable tbody tr');
+
+                rows.forEach(row => {
+                    const rowData = {
+                        name: row.cells[0].textContent,
+                        degree: row.cells[1].textContent,
+                        year: row.cells[2].textContent
+                    };
+                    tableData.push(rowData);
+                });
+                localStorage.setItem('studyBuddiesDataJSON', JSON.stringify(tableData));
+
+                // Method 2: Save without JSON (raw HTML)
+                const tbody = document.querySelector('#studyBuddiesTable tbody');
+                localStorage.setItem('studyBuddiesDataHTML', tbody.innerHTML);
+
+                alert('Data saved to local storage using both JSON and HTML methods!');
+            });
+
+            // Retrieve from local storage (tries JSON first, falls back to HTML)
+            document.getElementById('retrieveFromLocal').addEventListener('click', function () {
+                // Try JSON method first
+                const savedDataJSON = localStorage.getItem('studyBuddiesDataJSON');
+                if (savedDataJSON) {
+                    try {
+                        const tableData = JSON.parse(savedDataJSON);
+                        const tbody = document.querySelector('#studyBuddiesTable tbody');
+
+                        // Clear current table
+                        tbody.innerHTML = '';
+
+                        // Rebuild table from JSON data
+                        tableData.forEach(student => {
+                            const row = document.createElement('tr');
+                            row.innerHTML = `
+                                    <td>${student.name}</td>
+                                    <td>${student.degree}</td>
+                                    <td>${student.year}</td>
+                                    <td><button class="btn btn-success btn-sm delete-btn">Delete</button></td>
+                                `;
+                            tbody.appendChild(row);
+                        });
+
+                        // Reattach event listeners to new rows
+                        reattachEventListeners();
+                        alert('Data retrieved from local storage using JSON method!');
+                        return;
+                    } catch (e) {
+                        console.error('Error parsing JSON data:', e);
+                    }
+                }
+
+                // If JSON method fails or no JSON data, try HTML method
+                const savedDataHTML = localStorage.getItem('studyBuddiesDataHTML');
+                if (savedDataHTML) {
+                    const tbody = document.querySelector('#studyBuddiesTable tbody');
+                    tbody.innerHTML = savedDataHTML;
+
+                    // Reattach event listeners to new rows
+                    reattachEventListeners();
+                    alert('Data retrieved from local storage using HTML method!');
+                } else {
+                    alert('No data found in local storage!');
+                }
+            });
+
+            // Clear local storage
+            document.getElementById('clearLocal').addEventListener('click', function () {
+                // Clear both JSON and HTML versions
+                localStorage.removeItem('studyBuddiesDataJSON');
+                localStorage.removeItem('studyBuddiesDataHTML');
+                alert('Local storage cleared! Both JSON and HTML data removed.');
+            });
+
+            // Function to reattach event listeners to all rows
+            function reattachEventListeners() {
+                const rows = document.querySelectorAll("#studyBuddiesTable tbody tr");
+
+                rows.forEach(row => {
+                    const nameCell = row.cells[0];
+                    const name = nameCell.textContent.trim();
+
+                    // Reapply green color for names starting with 'S'
+                    if (name.startsWith("S")) {
+                        row.style.color = "green";
+                    }
+
+                    // Reattach delete button functionality
+                    const deleteBtn = row.querySelector(".delete-btn");
+                    deleteBtn.addEventListener("click", function () {
+                        row.remove();
+                    });
+                });
             }
 
-            // Add click event to the delete button
-            const deleteBtn = row.querySelector(".delete-btn");
-            deleteBtn.addEventListener("click", function () {
-                row.remove(); // Remove the row when button is clicked
+            // Initial setup of event listeners
+            const rows = document.querySelectorAll("#studyBuddiesTable tbody tr");
+            rows.forEach(row => {
+                const nameCell = row.cells[0];
+                const name = nameCell.textContent.trim();
+
+                // Change text color if name starts with 'S' (your existing functionality)
+                if (name.startsWith("S")) {
+                    row.style.color = "green";
+                }
+
+                // Add click event to the delete button
+                const deleteBtn = row.querySelector(".delete-btn");
+                deleteBtn.addEventListener("click", function () {
+                    row.remove();
+                });
             });
         });
-    });
-</script>
+    </script>
+</body>
+
 
